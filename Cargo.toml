@@ -1,7 +1,14 @@
 [package]
 name = "fapt"
 version = "0.1.0"
+authors = ["Gabriel Cruz"]
 edition = "2021"
+license-file = "LICENSE"
+description = "Check for packages with similar names on aptitude"
+homepage = "https://github.com/gmelodie/fapt"
+documentation = "https://github.com/gmelodie/fapt"
+repository = "https://github.com/gmelodie/fapt"
+readme = "README.md"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 

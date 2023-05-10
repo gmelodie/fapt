@@ -1,4 +1,4 @@
-pub struct MinHeap<T: PartialOrd + Copy>(Vec<T>);
+pub struct MinHeap<T: PartialOrd + Clone>(Vec<T>);
 
 fn parent_idx(i: usize) -> usize {
     return (i - 1) / 2;
@@ -10,7 +10,7 @@ fn right_child_idx(i: usize) -> usize {
     return (2 * i) + 2;
 }
 
-impl<T: PartialOrd + Copy> MinHeap<T> {
+impl<T: PartialOrd + Clone> MinHeap<T> {
     pub fn new() -> Self {
         Self(Vec::new())
     }
@@ -52,8 +52,8 @@ impl<T: PartialOrd + Copy> MinHeap<T> {
     }
 
     fn swap(&mut self, idx_a: usize, idx_b: usize) {
-        let aux = self.0[idx_a];
-        self.0[idx_a] = self.0[idx_b];
+        let aux = self.0[idx_a].clone();
+        self.0[idx_a] = self.0[idx_b].clone();
         self.0[idx_b] = aux;
     }
 
@@ -96,8 +96,9 @@ impl<T: PartialOrd + Copy> MinHeap<T> {
 }
 
 // #[cfg(test)] // only test when cargo test is run, not when building
+#[cfg(test)]
 mod tests {
-    use super::*;
+    use crate::*;
 
     #[test]
     fn test_hpush() {
